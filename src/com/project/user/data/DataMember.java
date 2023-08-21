@@ -1,5 +1,7 @@
 package com.project.user.data;
 
+import java.util.Arrays;
+
 public class DataMember {
 	
 	private String memberCode; 

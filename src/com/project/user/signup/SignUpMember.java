@@ -224,10 +224,13 @@ public class SignUpMember {
 	
 	//전화번호 유효성 체크
 	public static boolean telCheck(String tel) {
+	
+		
         // "-" 제거
         String temp = tel.replaceAll("-", "");
 
         // 길이가 11인지 확인
+        temp = "^010-\\d{3,4}-\\d{4}$";
         if (temp.length() != 11) {
             return false;
         }

@@ -3,11 +3,14 @@ package com.project.user.login;
 import java.util.Scanner;
 
 import com.project.auth.Auth;
+import com.project.auth.AuthDbms;
 import com.project.user.data.DataAdmin;
 import com.project.user.data.DataMember;
 import com.project.user.data.DataTeacher;
 
 public class LoginChoice {
+	static AuthDbms authDbms = new AuthDbms();
+	
 	public static void login(LoginMain main) {
 		
 		Auth auth = new Auth();
@@ -25,6 +28,7 @@ public class LoginChoice {
 		System.out.println("1. 일반회원");
 		System.out.println("2. 강사");
 		System.out.println("3. 관리자");
+		System.out.println("4. 로그인리스트출력");
 		System.out.println();
 		System.out.println("======================");
 		System.out.print("번호를 입력하세요: ");
@@ -51,13 +55,29 @@ public class LoginChoice {
 		} else if (num == 2) {
 			DataTeacher t = LoginTeacher.login();
 			if(t !=  null) {
+				auth.setAllCode(t.getTeacherCode());
+				auth.setChoiceCode("2");
+				auth.setId(t.getId());
+				auth.setName(t.getName());
+				
 				main.getLoginTList().add(t);
 			}	
-		} else {
+		} else if (num == 3) {
 			DataAdmin a = LoginAdmin.login();
 			if(a !=  null) {
+				auth.setAllCode(a.getAdminCode());
+				auth.setChoiceCode("3");
+				auth.setId(a.getId());
+				auth.setName(a.getName());
+				
 				main.getLoginAList().add(a);
 			}
+		} else if (num == 4) {
+			authDbms.printAuthList();
+		}
+		
+		if( !"".equals(auth.getAllCode()) && auth.getAllCode() != null ) {
+			authDbms.insertAuth(auth);
 		}
 
 	}
