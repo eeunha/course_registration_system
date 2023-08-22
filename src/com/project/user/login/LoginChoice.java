@@ -25,6 +25,7 @@ public class LoginChoice {
 		System.out.println("======================");
 		System.out.println();
 		System.out.println("로그인 할 회원 유형을 선택하세요.");
+		System.out.println("0. 뒤로가기");
 		System.out.println("1. 일반회원");
 		System.out.println("2. 강사");
 		System.out.println("3. 관리자");
@@ -36,12 +37,19 @@ public class LoginChoice {
 		num = scan.nextInt();
 		System.out.println();
 
-		while (num > 3) {
+		while (num > 4) {
 			System.out.println("유효하지 않은 번호입니다. 다시 입력해주세요.");
 			System.out.println();
 			System.out.print("번호를 입력하세요: ");
 			num = scan.nextInt();
 		}
+		
+		if(num == 0) {
+			//로그인 메인페이지로 이동
+			LoginMain lMain = new LoginMain();
+			lMain.LoginProcess();
+		}
+		
 		if (num == 1) {
 			DataMember m = LoginMember.login();
 			if(m !=  null) {
@@ -76,7 +84,7 @@ public class LoginChoice {
 			authDbms.printAuthList();
 		}
 		
-		if( !"".equals(auth.getAllCode()) && auth.getAllCode() != null ) {
+		if( auth.getAllCode() != null && !"".equals(auth.getAllCode()) ) {
 			authDbms.insertAuth(auth);
 		}
 
