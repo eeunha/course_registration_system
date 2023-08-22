@@ -136,7 +136,10 @@ public class Individual {
 			System.out.println();
 
 			CourseData.blockRecommend();
-
+			System.out.println();
+			System.out.println("0.뒤로가기");
+			System.out.println("입력: ");
+			
 			input = scan.nextLine();
 
 			if (input.equals("0")) {

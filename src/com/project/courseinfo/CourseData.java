@@ -1,10 +1,16 @@
 package com.project.courseinfo;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+
+import com.project.course.Course;
 
 public class CourseData {
 
@@ -17,7 +23,41 @@ public class CourseData {
 		CourseData.list = new ArrayList<Course>();
 
 	}
+//해쉬코드 키를 강좌로 놓고 값을 객체
 
+	public static void allCourse() {
+		
+		HashMap<String,Course> map = new HashMap<String, Course>();
+		
+		try {
+			BufferedReader allReader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
+			String line = null;
+
+			try {
+				while ((line = allReader.readLine()) != null) {
+					
+
+					String[] temp = line.split(",");
+					
+					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
+							temp[9], temp[10], temp[11]);
+					
+					map.put(temp[0], c);
+					
+					
+				}
+				System.out.println(map);
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}		
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			}
+		
+	}
 	//수강신청
 
 	// 개인별 강좌 추천 문화 선택
@@ -26,7 +66,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -39,7 +79,26 @@ public class CourseData {
 					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
 							temp[9], temp[10], temp[11]);
 
-					CourseData.list.add(c);
+					String tempValue = c.getStartDay();
+
+					int year = Integer.parseInt(tempValue.substring(0, 4));
+					int month = Integer.parseInt(tempValue.substring(4, 6));
+
+					Calendar nowTime = Calendar.getInstance();
+					Calendar courseTime = Calendar.getInstance();
+
+					courseTime.set(year, month - 1, 1);
+
+					long courseTimeTick = courseTime.getTimeInMillis();
+					long nowTimeTick = nowTime.getTimeInMillis();
+
+					long gap = nowTimeTick - courseTimeTick;
+
+					// 여기까지
+
+					if (gap < 0) {
+						CourseData.list.add(c);
+					}
 				}
 			}
 			
@@ -62,7 +121,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -74,9 +133,26 @@ public class CourseData {
 					
 					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
 							temp[9], temp[10], temp[11]);
-					
-					CourseData.list.add(c);
-					
+					String tempValue = c.getStartDay();
+
+					int year = Integer.parseInt(tempValue.substring(0, 4));
+					int month = Integer.parseInt(tempValue.substring(4, 6));
+
+					Calendar nowTime = Calendar.getInstance();
+					Calendar courseTime = Calendar.getInstance();
+
+					courseTime.set(year, month - 1, 1);
+
+					long courseTimeTick = courseTime.getTimeInMillis();
+					long nowTimeTick = nowTime.getTimeInMillis();
+
+					long gap = nowTimeTick - courseTimeTick;
+
+					// 여기까지
+
+					if (gap < 0) {
+						CourseData.list.add(c);
+					}
 				}
 			}
 			
@@ -98,7 +174,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -115,9 +191,26 @@ public class CourseData {
 					
 					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
 							temp[9], temp[10], temp[11]);
-					
-					CourseData.list.add(c);
-					
+					String tempValue = c.getStartDay();
+
+					int year = Integer.parseInt(tempValue.substring(0, 4));
+					int month = Integer.parseInt(tempValue.substring(4, 6));
+
+					Calendar nowTime = Calendar.getInstance();
+					Calendar courseTime = Calendar.getInstance();
+
+					courseTime.set(year, month - 1, 1);
+
+					long courseTimeTick = courseTime.getTimeInMillis();
+					long nowTimeTick = nowTime.getTimeInMillis();
+
+					long gap = nowTimeTick - courseTimeTick;
+
+					// 여기까지
+
+					if (gap < 0) {
+						CourseData.list.add(c);
+					}
 				}
 			}
 			
@@ -145,7 +238,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -158,8 +251,26 @@ public class CourseData {
 					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
 							temp[9], temp[10], temp[11]);
 					
-					CourseData.list.add(c);
-//					System.out.println(c);
+					String tempValue = c.getStartDay();
+
+					int year = Integer.parseInt(tempValue.substring(0, 4));
+					int month = Integer.parseInt(tempValue.substring(4, 6));
+
+					Calendar nowTime = Calendar.getInstance();
+					Calendar courseTime = Calendar.getInstance();
+
+					courseTime.set(year, month - 1, 1);
+
+					long courseTimeTick = courseTime.getTimeInMillis();
+					long nowTimeTick = nowTime.getTimeInMillis();
+
+					long gap = nowTimeTick - courseTimeTick;
+
+					// 여기까지
+
+					if (gap < 0) {
+						CourseData.list.add(c);
+					}
 				}
 			}
 
@@ -182,7 +293,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -195,8 +306,26 @@ public class CourseData {
 					Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8],
 							temp[9], temp[10], temp[11]);
 					
-					CourseData.list.add(c);
-					// System.out.println(c);
+					String tempValue = c.getStartDay();
+
+					int year = Integer.parseInt(tempValue.substring(0, 4));
+					int month = Integer.parseInt(tempValue.substring(4, 6));
+
+					Calendar nowTime = Calendar.getInstance();
+					Calendar courseTime = Calendar.getInstance();
+
+					courseTime.set(year, month - 1, 1);
+
+					long courseTimeTick = courseTime.getTimeInMillis();
+					long nowTimeTick = nowTime.getTimeInMillis();
+
+					long gap = nowTimeTick - courseTimeTick;
+
+					// 여기까지
+
+					if (gap < 0) {
+						CourseData.list.add(c);
+					}
 				}
 			}
 
@@ -220,7 +349,7 @@ public class CourseData {
 		try {
 			Random rnd = new Random();
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -252,7 +381,7 @@ public class CourseData {
 
 		try {
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -286,7 +415,7 @@ public class CourseData {
 		
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -321,7 +450,7 @@ public class CourseData {
 		
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -356,7 +485,7 @@ public class CourseData {
 		
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -391,7 +520,7 @@ public class CourseData {
 		
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -427,7 +556,7 @@ public class CourseData {
 	public static void mondayAmTime() {
 		try {
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -449,7 +578,7 @@ public class CourseData {
 	public static void mondayPmTime() {
 		try {
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -471,7 +600,7 @@ public class CourseData {
 	public static void tuesdayAmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -493,7 +622,7 @@ public class CourseData {
 	public static void tuesdayPmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -515,7 +644,7 @@ public class CourseData {
 	public static void wednesdayAmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -537,7 +666,7 @@ public class CourseData {
 	public static void wednesdayPmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -559,7 +688,7 @@ public class CourseData {
 	public static void thursdayAmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -581,7 +710,7 @@ public class CourseData {
 	public static void thursdayPmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -603,7 +732,7 @@ public class CourseData {
 	public static void fridayAmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -625,7 +754,7 @@ public class CourseData {
 	public static void fridayPmTime() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -649,7 +778,7 @@ public class CourseData {
 	public static void child() {
 		try {
 
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 
 			String line = null;
 
@@ -676,7 +805,7 @@ public class CourseData {
 	public static void teenager() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -703,7 +832,7 @@ public class CourseData {
 	public static void adult() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -730,7 +859,7 @@ public class CourseData {
 	public static void everyone() {
 		try {
 			
-			BufferedReader reader = new BufferedReader(new FileReader("/Users/suding/코드 저장/course_new.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/courseListDummy.txt"));
 			
 			String line = null;
 			
@@ -788,6 +917,7 @@ public class CourseData {
 	private static void courseMent(Course c) {
 		if (c != null) {
 			System.out.printf("[%s] 프로그램명 : %s\n", c.getCategory(), c.getCourseName());
+			System.out.println();
 			System.out.printf("강좌코드: %s\n", c.getNum());
 			System.out.println();
 			System.out.printf("강사코드: %s\n", c.getTeacherNum());
@@ -813,42 +943,5 @@ public class CourseData {
 		
 		CourseData.list.clear();
 	}
-//	private static void goBackMent() {
-//		System.out.println();
-//		System.out.println("0. 뒤로가기 ");
-//		System.out.print(">  ");
-//	}
-//
-//	//개인 별 강좌 추천 랜덤으로 뽑는 멘트
-//	private static void ment(Course c) {
-//
-//		//Corse c = CorseData.list.get(rnd.nextInt(CorseData.list.size()));
-//		// System.out.println(b);
-//		if (c != null) {
-//
-//			System.out.printf("[%s] 프로그램명 : %s\n", c.getCategory(), c.getLectureName());
-//			System.out.printf("강좌코드: \s\n", c.getNum());
-//			System.out.println();
-//			System.out.printf("강사코드: %s\n", c.getTeacherNum());
-//			System.out.println();
-//			System.out.printf("시간: %s\n", c.getTime());
-//			System.out.println();
-//			System.out.printf("요일: %s\n", c.getDay());
-//			System.out.println();
-//			System.out.printf("대상: %s\n", c.getTarget());
-//			System.out.println();
-//			System.out.printf("수강료: %s\n", c.getLectureFee());
-//			System.out.println();
-//			System.out.printf("정원: %s\n", c.getPerson());
-//			System.out.println();
-//			System.out.printf("강좌내용: %s\n", c.getContents());
-//			System.out.println();
-//			System.out.printf("강좌시작일: %s\n", c.getStartDay());
-//			System.out.println();
-//			System.out.printf("강의실 : %s", c.getRoomNum());
-//			System.out.println();
-//
-//		}
-//
-//	}
+
 }
