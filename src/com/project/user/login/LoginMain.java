@@ -55,6 +55,7 @@ public class LoginMain {
 			num = scan.nextInt();
 		}
 		if(num == 0) {
+			
 			System.out.println("메인화면으로 돌아갑니다.");
 			System.out.println();
 		}else if (num == 1) {
