@@ -14,33 +14,31 @@ public class MainView {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		int input = 0;
-		
 		mainView();
 		
 		boolean loop = true;
 		
 		while (loop) {
 
-			input = scan.nextInt();
+			String input = scan.nextLine();
 			
-			if (input == 1) {
+			if (input.equals("1")) {
 				LoginMain lMain = new LoginMain();
 		        lMain.LoginProcess();
 				mainView();
-			} else if (input == 2) {
+			} else if (input.equals("2")) {
 				SignUpMain.main(null);
 				mainView();
-			} else if (input == 3) {
-				CourseInfo.lectureInfo();
+			} else if (input.equals("3")) {
+				CourseInfo.courseInfo();
 				mainView();
-			} else if (input == 4) {
+			} else if (input.equals("4")) {
 				CenterInfo.centerInfo();
 				mainView();
-			} else if (input == 5) {
-				CourseInfo.lectureInfo();
+			} else if (input.equals("5")) {
+				CourseInfo.courseInfo();
 				mainView();
-			} else if (input == 6) {
+			} else if (input.equals("6")) {
 				NoticeMain.controlNoticeMain();
 				mainView();
 			} else {

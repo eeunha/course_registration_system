@@ -17,12 +17,11 @@ public class Popularity {
 		System.out.println("==========================");
 		System.out.println("프로그램명: 인라인스케이트");
 		System.out.println("강사명: 홍길동");
-		System.out.println("시간: 15:00~16:00");
-		System.out.println("요일: 화, 목");
-		System.out.println("대상: 유아, 어린이");
-		System.out.println("수강료: 35000원(1개월)");
-		System.out.println("정원: 20명");
-		System.out.println("현재 신청 인원수: 15명");
+		System.out.println("시작시간: 15:00");
+		System.out.println("요일: 화");
+		System.out.println("대상: 어린이");
+		System.out.println("수강료: 35000(원)");
+		System.out.println("신청인원: 20명");
 		System.out.println("강좌 평균 별점: ★★★★★");
 		System.out.println("강사 평균 별점: ★★★★");
 
@@ -32,35 +31,37 @@ public class Popularity {
 		System.out.println("==========================");
 		System.out.println("프로그램명: 월요통기타");
 		System.out.println("강사명: 아무개");
-		System.out.println("시간: 13:00~14:00");
+		System.out.println("시작시간: 13:00");
 		System.out.println("요일: 월");
-		System.out.println("대상: 초 3 이상 누구나");
-		System.out.println("수강료: 50000원(1개월)");
-		System.out.println("정원: 10명");
-		System.out.println("현재 신청 인원수: 8명");
+		System.out.println("대상: 누구나");
+		System.out.println("수강료: 50000(원)");
+		System.out.println("신청인원: 10명");
 		System.out.println("강좌 평균 별점: ★★★★");
 		System.out.println("강사 평균 별점: ★★★★★");
 	
 		System.out.println();
 		System.out.println("0. 뒤로가기 ");
 		System.out.print("입력:  ");
-		String input = scan.nextLine();
-		while (!input.equals("0")) {
 
+		
+		boolean loop = true;
+		
+		while (loop) {
+
+			String input = scan.nextLine();
+			
 			if (input.equals("0")) {
-				CourseInfo.lectureInfo();
-
+				System.out.println("다시 돌아갑니다.");
+				System.out.println();
+				loop = false;
 			} else {
 				System.out.println("뒤로가려면 0번을 입력하세요.");
 				System.out.print("입력: ");
-				input = scan.nextLine();
-
+				
 			}
+			
+		}
 
-		}
-		if (input.equals("0")) {
-			CourseInfo.lectureInfo();
-		}
 	}
 	
 }

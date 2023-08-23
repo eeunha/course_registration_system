@@ -1528,37 +1528,6 @@ while ((line = reader2.readLine()) != null) {
 		
 	}
 	
-	//오전 시간 메소드
-//	private static void amMethod(String[] temp) {
-//		String startTime = temp[3].substring(0, 5);
-//		
-//		int startHour = Integer.parseInt(startTime.substring(0, 2));
-//		
-//		if (startHour >= 1 && startHour < 12) {
-//			
-//			Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
-//					temp[8], temp[9], temp[10], temp[11]);
-//			
-//			CourseData.courseList.add(c);
-//			courseMent(c);
-//		}
-//	}
-	
-	//오후 시간 메소드
-//	private static void pmMethod(String[] temp) {
-//		String startTime = temp[3].substring(0, 5);
-//		
-//		int startHour = Integer.parseInt(startTime.substring(0, 2));
-//		
-//		if (startHour >= 12 && startHour < 24) {
-//			
-//		    Course c = new Course(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7],
-//		            temp[8], temp[9], temp[10], temp[11]);
-//
-//		    CourseData.courseList.add(c);
-//		    courseMent(c);
-//		}
-//	}
 	
 	private static void courseMent(Course c, Teacher t) {
 		if (c != null) {
@@ -1568,15 +1537,15 @@ while ((line = reader2.readLine()) != null) {
 			System.out.println();
 			System.out.printf("강사명: %s\n", t.getTeacherName());
 			System.out.println();
-			System.out.printf("시간: %s\n", c.getTime());
+			System.out.printf("시작시간: %s\n", c.getTime());
 			System.out.println();
 			System.out.printf("요일: %s\n", c.getDay());
 			System.out.println();
 			System.out.printf("대상: %s\n", c.getTarget());
 			System.out.println();
-			System.out.printf("수강료: %s\n", c.getCourseFee());
+			System.out.printf("수강료: %s원\n", c.getCourseFee());
 			System.out.println();
-			System.out.printf("정원: %s\n", c.getPerson());
+			System.out.printf("신청인원: %s\n", c.getPerson());
 			System.out.println();
 			System.out.printf("강좌내용: %s\n", c.getContents());
 			System.out.println();
@@ -1590,36 +1559,5 @@ while ((line = reader2.readLine()) != null) {
 		CourseData.courseList.clear();
 	}
 
-
-	//강좌 목록 출력 메소드
-//	private static void courseMent(Course c ) {
-//		if (c != null) {
-//			System.out.printf("[%s] 프로그램명 : %s\n", c.getCategory(), c.getCourseName());
-//			System.out.println();
-//			System.out.printf("강좌코드: %s\n", c.getNum());
-//			System.out.println();
-//			System.out.printf("강사코드: %s\n", c.getTeacherNum());
-//			System.out.println();
-//			System.out.printf("시간: %s\n", c.getTime());
-//			System.out.println();
-//			System.out.printf("요일: %s\n", c.getDay());
-//			System.out.println();
-//			System.out.printf("대상: %s\n", c.getTarget());
-//			System.out.println();
-//			System.out.printf("수강료: %s\n", c.getCourseFee());
-//			System.out.println();
-//			System.out.printf("정원: %s\n", c.getPerson());
-//			System.out.println();
-//			System.out.printf("강좌내용: %s\n", c.getContents());
-//			System.out.println();
-//			System.out.printf("강좌시작일: %s\n", c.getStartDay());
-//			System.out.println();
-//			System.out.printf("강의실 : %s\n", c.getRoomNum());
-//			System.out.println("-----------------------------------------");
-//			System.out.println();
-//		}
-//		
-//		CourseData.courseList.clear();
-//	}
 
 }

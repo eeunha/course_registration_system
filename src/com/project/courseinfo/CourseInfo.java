@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class CourseInfo {
 	
 	//수강 안내 페이지 출력 멘트
-	public static void lectureInfo() {
+	public static void courseInfo() {
 		
 		
 		
 		Scanner scan = new Scanner(System.in);
 		
-		lectureInfoList();
+		courseInfoList();
 				
 		boolean loop = true;
 		
@@ -23,19 +23,19 @@ public class CourseInfo {
 				loop = false;
 			} else if (input.equals("1")) {
 				Popularity.popularity();
-				lectureInfoList();
+				courseInfoList();
 			} else if (input.equals("2")) {
 				Individual.individual();
-				lectureInfoList();
+				courseInfoList();
 			} else if (input.equals("3")) {
 				CourseList.lectureListMent();
-				lectureInfoList();
+				courseInfoList();
 			} else if (input.equals("4")) {
 				Discount.discount();
-				lectureInfoList();
+				courseInfoList();
 			} else if (input.equals("5")) {
 				Refund.refund();
-				lectureInfoList();
+				courseInfoList();
 			} else {
 				System.out.println("목록에 있는 번호를 입력하세요.");
 				System.out.print("입력: ");
@@ -46,7 +46,7 @@ public class CourseInfo {
 	}
 
 
-	public static void lectureInfoList() {
+	public static void courseInfoList() {
 	
 		System.out.println();
 		System.out.println("========================");

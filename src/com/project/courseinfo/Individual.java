@@ -14,6 +14,147 @@ public class Individual {
 //개인 강좌 추천 출력 멘트
 	private static void individualMent() {
 
+		recommandView();
+		
+		
+		boolean loop = true;
+		
+		while (loop) {
+			
+			String input = scan.nextLine();
+
+			if(input.equals("0")) {
+				System.out.println("뒤로 돌아갑니다.");
+				System.out.println();
+				loop = false;
+			} else if (input.equals("1")) {
+				System.out.println();
+				System.out.println("==========================");
+				System.out.println("개인 별 강좌 추천");
+				System.out.println("==========================");
+				System.out.println("문화를 선택하셨습니다.");
+				System.out.println("아래 강좌를 추천합니다.");
+				System.out.println("==========================");
+				System.out.println();
+				
+				CourseData.cultureRecommend();
+				
+				System.out.println();
+				System.out.println("0.뒤로가기");
+				System.out.print("입력: ");
+				
+				
+				if (input.equals("0")) {
+					System.out.println("뒤로 돌아갑니다.");
+					System.out.println();
+					recommandView();
+				}
+				
+			} else if (input.equals("2")) {
+				System.out.println();
+				System.out.println("==========================");
+				System.out.println("개인 별 강좌 추천");
+				System.out.println("==========================");
+				System.out.println("피아노를 선택하셨습니다.");
+				System.out.println("아래 강좌를 추천합니다.");
+				System.out.println("==========================");
+				System.out.println();
+				
+				CourseData.pianoRecommend();
+				
+				System.out.println();
+				System.out.println("0.뒤로가기");
+				System.out.println("입력: ");
+				
+				
+				if (input.equals("0")) {
+					System.out.println("뒤로 돌아갑니다.");
+					System.out.println();
+					recommandView();
+				}
+				
+			} else if (input.equals("3")) {
+				System.out.println();
+				System.out.println("==========================");
+				System.out.println("개인 별 강좌 추천");
+				System.out.println("==========================");
+				System.out.println("체육을 선택하셨습니다.");
+				System.out.println("아래 강좌를 추천합니다.");
+				System.out.println("==========================");
+				System.out.println();
+				
+				CourseData.sportsRecommend();
+				
+				System.out.println();
+				System.out.println("0.뒤로가기");
+				System.out.println("입력: ");
+				
+				
+				if (input.equals("0")) {
+					System.out.println("뒤로 돌아갑니다.");
+					System.out.println();
+					recommandView();
+				}
+				
+			} else if (input.equals("4")) {
+				System.out.println();
+				System.out.println("==========================");
+				System.out.println("개인 별 강좌 추천");
+				System.out.println("==========================");
+				System.out.println("어린이를 선택하셨습니다.");
+				System.out.println("아래 강좌를 추천합니다.");
+				System.out.println("==========================");
+				System.out.println();
+				
+				CourseData.kidsRecommend();
+				
+				System.out.println();
+				System.out.println("0.뒤로가기");
+				System.out.println("입력: ");
+				
+				
+				if (input.equals("0")) {
+					System.out.println("뒤로 돌아갑니다.");
+					System.out.println();
+					recommandView();
+				}
+				
+			} else if (input.equals("5")) {
+				System.out.println();
+				System.out.println("==========================");
+				System.out.println("개인 별 강좌 추천");
+				System.out.println("==========================");
+				System.out.println("블럭교실을 선택하셨습니다.");
+				System.out.println("아래 강좌를 추천합니다.");
+				System.out.println("==========================");
+				System.out.println();
+				
+				CourseData.blockRecommend();
+				
+				System.out.println();
+				System.out.println("0.뒤로가기");
+				System.out.println("입력: ");
+				
+				
+				if (input.equals("0")) {
+					System.out.println("뒤로 돌아갑니다.");
+					System.out.println();
+					recommandView();
+				}
+			} else {
+				System.out.println("목록에 있는 번호를 입력하세요.");
+				System.out.print("입력: ");
+
+				
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	public static void recommandView() {
 		System.out.println();
 		System.out.println("==========================");
 		System.out.println("개인 별 강좌 추천");
@@ -30,135 +171,6 @@ public class Individual {
 		System.out.println("----------------------------------");
 		
 		System.out.print("입력: ");
-		String input = scan.nextLine();
-		
-		if(input.equals("0")) {
-			CourseInfo.lectureInfo();
-		}
-		//
-		while (!input.equals("0")) {
-
-		if (input.equals("1")) {
-			System.out.println();
-			System.out.println("==========================");
-			System.out.println("개인 별 강좌 추천");
-			System.out.println("==========================");
-			System.out.println("문화를 선택하셨습니다.");
-			System.out.println("아래 강좌를 추천합니다.");
-			System.out.println("==========================");
-			System.out.println();
-
-			CourseData.cultureRecommend();
-
-			System.out.println();
-			System.out.println("0.뒤로가기");
-			System.out.print("입력: ");
-
-			input = scan.nextLine();
-
-			if (input.equals("0")) {
-				individualMent();
-				}
-
-		} else if (input.equals("2")) {
-			System.out.println();
-			System.out.println("==========================");
-			System.out.println("개인 별 강좌 추천");
-			System.out.println("==========================");
-			System.out.println("피아노를 선택하셨습니다.");
-			System.out.println("아래 강좌를 추천합니다.");
-			System.out.println("==========================");
-			System.out.println();
-			
-			CourseData.pianoRecommend();
-
-			System.out.println();
-			System.out.println("0.뒤로가기");
-			System.out.println("입력: ");
-
-			input = scan.nextLine();
-
-			if (input.equals("0")) {
-				individualMent();
-				}
-
-		} else if (input.equals("3")) {
-			System.out.println();
-			System.out.println("==========================");
-			System.out.println("개인 별 강좌 추천");
-			System.out.println("==========================");
-			System.out.println("체육을 선택하셨습니다.");
-			System.out.println("아래 강좌를 추천합니다.");
-			System.out.println("==========================");
-			System.out.println();
-
-			CourseData.sportsRecommend();
-
-			System.out.println();
-			System.out.println("0.뒤로가기");
-			System.out.println("입력: ");
-
-			input = scan.nextLine();
-
-			if (input.equals("0")) {
-				individualMent();
-				}
-
-		} else if (input.equals("4")) {
-			System.out.println();
-			System.out.println("==========================");
-			System.out.println("개인 별 강좌 추천");
-			System.out.println("==========================");
-			System.out.println("어린이를 선택하셨습니다.");
-			System.out.println("아래 강좌를 추천합니다.");
-			System.out.println("==========================");
-			System.out.println();
-
-			CourseData.kidsRecommend();
-
-			System.out.println();
-			System.out.println("0.뒤로가기");
-			System.out.println("입력: ");
-
-			input = scan.nextLine();
-
-			if (input.equals("0")) {
-				individualMent();
-				}
-
-		} else if (input.equals("5")) {
-			System.out.println();
-			System.out.println("==========================");
-			System.out.println("개인 별 강좌 추천");
-			System.out.println("==========================");
-			System.out.println("블럭교실을 선택하셨습니다.");
-			System.out.println("아래 강좌를 추천합니다.");
-			System.out.println("==========================");
-			System.out.println();
-
-			CourseData.blockRecommend();
-
-			System.out.println();
-			System.out.println("0.뒤로가기");
-			System.out.println("입력: ");
-			
-			input = scan.nextLine();
-
-			if (input.equals("0")) {
-				individualMent();
-				}
-			} else {
-				System.out.println("목록에 있는 번호를 입력하세요.");
-				System.out.print("입력: ");
-				input = scan.nextLine();
-
-				
-			}
-		}
-		if(input.equals("0")) {
-			CourseInfo.lectureInfo();
-		}
-
 	}
 
 }// 문화, 피아노, 어린이, 체육, 블럭교실

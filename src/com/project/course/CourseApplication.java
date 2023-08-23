@@ -252,7 +252,7 @@ public class CourseApplication {
 			System.out.println();
 			System.out.printf("강사코드: %s\n", t.getTeacherName());
 			System.out.println();
-			System.out.printf("시간: %s\n", c.getTime());
+			System.out.printf("시작시간: %s\n", c.getTime());
 			System.out.println();
 			System.out.printf("요일: %s\n", c.getDay());
 			System.out.println();
@@ -260,7 +260,7 @@ public class CourseApplication {
 			System.out.println();
 			System.out.printf("수강료: %s원\n", c.getCourseFee());
 			System.out.println();
-			System.out.printf("정원: %s\n", c.getPerson());
+			System.out.printf("신청인원: %s\n", c.getPerson());
 			System.out.println();
 			System.out.printf("강좌내용: %s\n", c.getContents());
 			System.out.println();
